@@ -19,7 +19,6 @@ export function NewHabitForm() {
 
   async function createNewHabit(event: FormEvent) {
     event.preventDefault();
-    console.log("chamou");
     if (!title || weekDays.length === 0) {
       return;
     }
@@ -40,9 +39,9 @@ export function NewHabitForm() {
   }
 
   function handleToggleWeekDay(weekDay: number) {
-    console.log("chamou");
+    console.log("chamou", weekDay);
     if (weekDays.includes(weekDay)) {
-      const weekDaysWithRemovedOne = weekDays.filter((day) => day === weekDay);
+      const weekDaysWithRemovedOne = weekDays.filter((day) => day !== weekDay);
       setWeekDays(weekDaysWithRemovedOne);
     } else {
       const weekDaysWithAddedOne = [...weekDays, weekDay];
@@ -75,7 +74,7 @@ export function NewHabitForm() {
             checked={weekDays.includes(index)}
             onCheckedChange={() => handleToggleWeekDay(index)}
           >
-            <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500 ">
+            <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500 transition-colors">
               <Checkbox.Indicator>
                 <Check size={20} className="text-white" />
               </Checkbox.Indicator>
@@ -87,7 +86,7 @@ export function NewHabitForm() {
 
       <button
         type="submit"
-        className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500"
+        className="mt-6 rounded-lg p-4 flex items-center justify-center gap-3 font-semibold bg-green-600 hover:bg-green-500 transition-colors"
       >
         <Check size={20} weight="bold" />
         Confirmar
