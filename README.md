@@ -31,6 +31,8 @@ Project proposed by RocketSeat to be developed during the "Next Level Week" even
 - Access the "server" folder through the terminal
 - Run command to install dependencies:
 	- `npm install`
+-Run the migrations:
+	-`npx prisma migrate dev`
 - Run the project:
 	- `npm run dev`
 
